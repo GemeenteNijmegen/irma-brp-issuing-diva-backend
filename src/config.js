@@ -30,6 +30,10 @@ const config = {
     algorithm: process.env.JWT_ISSUE_ALGORITHM ? process.env.JWT_ISSUE_ALGORITHM : 'none',
     issuer: process.env.JWT_ISSUE_ISSUER ? process.env.JWT_ISSUE_ISSUER : 'diva',
   },
+  brpApiUrl: process.env.BRP_API_URL ? process.env.BRP_API_URL : 'https://data-test.nijmegen.nl/brp/personen/attributen',
+  schemeManagerId: process.env.SCHEME_MANAGER_ID ? process.env.SCHEME_MANAGER_ID : 'irma-demo',
+  demoBSN: process.env.DEMO_BSN ? process.env.DEMO_BSN : '304661818',
+  disableDigidAuthentication: process.env.DISABLE_DIGID_AUTHENTICATION && process.env.DISABLE_DIGID_AUTHENTICATION === 'true',
 };
 
 module.exports = config;

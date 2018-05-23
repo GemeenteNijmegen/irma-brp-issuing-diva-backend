@@ -1,4 +1,5 @@
 const diva = require('diva-irma-js');
+const digidAuth = require('../modules/digid-authentication');
 
 /**
  * Request handler
@@ -9,10 +10,19 @@ const diva = require('diva-irma-js');
  */
 module.exports = function requestHandler(req, res) {
   const sessionId = req.sessionId;
-  diva
-    .getAttributes(sessionId)
-    .then(attributes => res.json({
-      sessionId,
-      attributes,
-    }));
+  return digidAuth
+    .getAuthenticatedBSN(req)
+    .catch(() => Promise.resolve(null)) // For now we don't fail on authentication errors
+    .then((bsn) => {
+      const digid = typeof bsn === 'string';
+      return diva
+        .getAttributes(sessionId)
+        .then(attributes => res.json({
+          sessionId,
+          authenticated: {
+            digid,
+          },
+          attributes,
+        }));
+    });
 };

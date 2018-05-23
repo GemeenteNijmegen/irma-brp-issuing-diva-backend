@@ -40,7 +40,6 @@ app.use(bodyParser.text()); // TODO: restrict to one endpoint
 app.use(bodyParser.json()); // TODO: restrict to one endpoint
 app.use(simpleSession);
 
-
 // Reference implementation session management endpoints
 app.get('/api/get-session', require('./actions/get-session'));
 app.get('/api/deauthenticate', require('./actions/deauthenticate'));
