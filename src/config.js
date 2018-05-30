@@ -7,7 +7,7 @@ const config = {
     maxAge: 300000,
     sameSite: true,
     signed: true,
-    secure: false, // TODO: NOTE: must be set to true and be used with HTTPS only!
+    secure: true, // TODO: NOTE: must be set to true and be used with HTTPS only!
   },
   baseUrl: process.env.BASE_URL ? process.env.BASE_URL : 'http://localhost:4000',
   apiKey: process.env.IRMA_API_SERVER_KEY ? process.env.IRMA_API_SERVER_KEY : null,

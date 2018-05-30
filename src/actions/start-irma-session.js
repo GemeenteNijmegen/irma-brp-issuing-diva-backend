@@ -17,11 +17,11 @@ function startBRPIssueSession(req, credentialType) {
         validity: moment().add(1, 'year').unix(),
         attributes: {
           street: brpData.adres.straat,
-          number: brpData.adres.huisnummer,
+          houseNumber: brpData.adres.huisnummer,
           zipcode: brpData.adres.Postcode,
           municipality: brpData.adres.Gemeente,
           city: brpData.adres.woonplaats,
-          country: 'Nederland',
+          // country: 'Nederland',
         },
       }, {
         credential: `${schemeManagerId}.nijmegen.ageLimits`,
